@@ -7,6 +7,7 @@ public partial class Main : Node3D
 
     [Export]
     private float _hexSize = 0.5f;
+
     [Export]
     private Vector2 _mapSize = new(1024, 1024);
 

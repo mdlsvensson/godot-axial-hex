@@ -1,5 +1,5 @@
-using System;
 using Godot;
+using System;
 using static HexMapGlobals;
 
 namespace AxialCoord;
@@ -24,13 +24,13 @@ public struct Axial
         NorthEast, North, NorthWest, SouthWest, South, SouthEast
     }
 
-    static public Axial[] Directions = new Axial[]
+    public static Axial[] Directions = new Axial[]
     {
-        new(+1, 0), new(+1, -1), new(0, -1), 
-        new(-1, 0), new(-1, +1), new(0, +1), 
+        new(+1, 0), new(+1, -1), new(0, -1),
+        new(-1, 0), new(-1, +1), new(0, +1),
     };
 
-    static public Axial[] Diagonals = new Axial[]
+    public static Axial[] Diagonals = new Axial[]
     {
         new(+2, -1), new(+1, -2), new(-1, -1),
         new(-2, +1), new(-1, +2), new(+1, +1)
@@ -54,25 +54,13 @@ public struct Axial
         return new Axial(axial.Q * factor, axial.R * factor);
     }
 
-    public readonly Axial RotateLeft()
-    {
-        return new Axial(-(-Q - R), -Q);
-    }
+    public readonly Axial RotateLeft() => new(-(-Q - R), -Q);
 
-    public readonly Axial RotateRight()
-    {
-        return new Axial(-R, -(-Q - R));
-    }
+    public readonly Axial RotateRight() => new(-R, -(-Q - R));
 
-    public readonly int Length()
-    {
-        return (Math.Abs(Q) + Math.Abs(R) + Math.Abs(-Q - R)) / 2;
-    }
+    public readonly int Length() => (Math.Abs(Q) + Math.Abs(R) + Math.Abs(-Q - R)) / 2;
 
-    public readonly int DistanceTo(Axial to)
-    {
-        return (this - to).Length();
-    }
+    public readonly int DistanceTo(Axial to) => (this - to).Length();
 
     public readonly Vector3 ToPos3D()
     {
