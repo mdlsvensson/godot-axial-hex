@@ -1,6 +1,6 @@
-using System;
-using Godot;
 using AxialCoord;
+using Godot;
+using System;
 using static HexMapGlobals;
 
 namespace Extensions;
